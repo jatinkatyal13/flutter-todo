@@ -32,21 +32,24 @@ class _HomeState extends State<Home> {
       ),
       body: Column(
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Expanded(
-                flex: 1,
-                child: TextField(
-                  controller: _addTodoController,
+          Container(
+            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: TextField(
+                    controller: _addTodoController,
+                  ),
                 ),
-              ),
-              FlatButton(
-                onPressed: addTodo,
-                child: Text(
-                  'Add +'
+                FlatButton(
+                  onPressed: addTodo,
+                  child: Text(
+                    'Add +'
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Expanded(
             flex: 1,

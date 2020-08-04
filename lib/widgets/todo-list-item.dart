@@ -14,7 +14,12 @@ class TodoListItem extends StatelessWidget {
       onTap: () {
         Navigator
           .of(context)
-          .pushNamed('/todo');
+          .pushNamed(
+            '/todo',
+            arguments: <String, Object> {
+              'todo': todo
+            }
+          );
       },
       child: Container(
         padding: EdgeInsets.all(15),
