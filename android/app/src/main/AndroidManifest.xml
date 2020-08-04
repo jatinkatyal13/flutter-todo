@@ -9,6 +9,7 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="sample_todo"
         android:icon="@mipmap/ic_launcher">
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

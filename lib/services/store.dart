@@ -8,10 +8,14 @@ abstract class Store {
   static const int _version = 1;
 
   static Future<void> init() async {
-    if (_database != null) return;
+    try {
+      if (_database != null) return;
 
-    String path = await getDatabasesPath();
-    _database = await openDatabase(path, version: _version, onCreate: onCreate);
+      String path = await getDatabasesPath();
+      _database = await openDatabase(path, version: _version, onCreate: onCreate);
+    } catch(err) {
+      print(err);
+    }
   }
 
   static void onCreate(Database database, int version) {

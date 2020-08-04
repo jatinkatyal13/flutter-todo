@@ -1,6 +1,8 @@
 import 'package:sample_todo/models/base-model.dart';
 
 class Todo extends Model {
+  static String _tableName = 'todos';
+
   int id;
   String title;
   bool completed;

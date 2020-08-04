@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample_todo/models/todo.dart';
+import 'package:sample_todo/services/store.dart';
 import 'package:sample_todo/widgets/todo-list.dart';
 
 class Home extends StatefulWidget {
@@ -10,6 +11,12 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List<Todo> todos = [];
   TextEditingController _addTodoController = TextEditingController(text: '');
+
+  @override
+  void initState() {
+    super.initState();
+
+  }
 
   addTodo() {
     setState(() {
