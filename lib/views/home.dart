@@ -9,10 +9,14 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<String> todos = [];
+  TextEditingController _addTodoController = TextEditingController(text: '');
 
   addTodo() {
     setState(() {
-      todos.add('bleh');
+      if (_addTodoController.text.length > 0) {
+        todos.add(_addTodoController.text);
+        _addTodoController.text = '';
+      }
     });
   }
 
@@ -28,7 +32,9 @@ class _HomeState extends State<Home> {
             children: <Widget>[
               Expanded(
                 flex: 1,
-                child: TextField(),
+                child: TextField(
+                  controller: _addTodoController,
+                ),
               ),
               FlatButton(
                 onPressed: addTodo,
