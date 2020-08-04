@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:sample_todo/models/todo.dart';
 
 class TodoList extends StatelessWidget {
-  final List<String> todos;
+  final List<Todo> todos;
 
   TodoList({
-    List<String> todos
+    List<Todo> todos
   }): this.todos = todos;
 
   @override
@@ -12,12 +13,19 @@ class TodoList extends StatelessWidget {
     return ListView.builder(
       itemCount: todos.length,
       itemBuilder: (context, index) {
-        return Center(
-          child: Text(
-            todos[index]
-          )
+        return InkWell(
+          onTap: () {
+            Navigator
+              .of(context)
+              .pushNamed('/todo');
+          },
+          child: Center(
+            child: Text(
+              todos[index].title
+            ),
+          ),
         );
-      },
+      }
     );
   }
 }
