@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample_todo/models/todo.dart';
+import 'package:sample_todo/widgets/todo-list-item.dart';
 
 class TodoList extends StatelessWidget {
   final List<Todo> todos;
@@ -13,17 +14,8 @@ class TodoList extends StatelessWidget {
     return ListView.builder(
       itemCount: todos.length,
       itemBuilder: (context, index) {
-        return InkWell(
-          onTap: () {
-            Navigator
-              .of(context)
-              .pushNamed('/todo');
-          },
-          child: Center(
-            child: Text(
-              todos[index].title
-            ),
-          ),
+        return TodoListItem(
+          todo: todos[index],
         );
       }
     );
